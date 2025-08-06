@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>My task 2</title>
+<link rel="stylesheet"  type="text\css" href="task2.css">
+<style>
+div{
+background-color:black;
+color:blue;
+height:90px;
+margin-left:180px;
+margin-right:180px;
+justify-content:center;
+box-shadow:2px 2px 3px blue;
+border-radius:20px;
+}
+body{
+color:red;
+}
+</style>
+    </head>
+    <body>
+        <div align="center">
+            <h1>To-Do List</h1>
+            <input type="text" id="task" placeholder="enter in it">
+            <button id="btn">Add</button>
+<ul id="unorderlist">
+</ul>
+</div>
+<script>
+let n=document.getElementById('btn')
+n.addEventListener('click',function() {
+const input=document.getElementById('task');
+const taskText=input.value;
+if(taskText!== ' '){
+const unorder=document.getElementById('unorderlist');
+const list=document.createElement('li');
+list.textContent=taskText;
+unorder.appendChild(list);
+input.value=' ' ;
+
+
+const del=document.createElement('button');
+del.textContent="Delete";
+del.style.backgroundColor="red";
+list.appendChild(del);
+del.addEventListener('click',function() {
+const ele=event.target.parentElement;
+unorder.removeChild(ele);
+list.appendChild(del);}
+);
+}
+else{
+alert("enter a task");
+}
+});
+</script>
+    </body>
+
+
+
+
